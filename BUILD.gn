@@ -1,0 +1,64 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+import("//huhi/build/config.gni")
+
+assert(is_win)
+
+group("omaha") {
+  deps = [ ":build_omaha_installer" ]
+}
+
+action("build_omaha_installer") {
+  script="build_omaha.py"
+
+  inputs = [ "build_omaha.py" ]
+
+  sources = [ "$root_out_dir/$huhi_installer_exe" ]
+
+  _install_switch = ""
+  _tag_app_name = "Huhi-Release"
+  if (huhi_channel == "beta") {
+    _install_switch = "--chrome-beta"
+    _tag_app_name = "Huhi-Browser-Beta"
+  } else if (huhi_channel == "dev") {
+    _install_switch = "--chrome-dev"
+    _tag_app_name = "Huhi-Browser-Dev"
+  } else if (huhi_channel == "nightly") {
+    _install_switch = "--chrome-sxs"
+    _tag_app_name = "Huhi-Browser-Nightly"
+  } else {
+    assert(huhi_channel == "", "Unknown channel name")
+  }
+
+  out_dir = rebase_path(root_out_dir)
+
+  args = [
+    "--root_out_dir=$out_dir",
+    "--huhi_installer_exe=$huhi_installer_exe",
+    "--stub_installer_exe=$huhi_stub_installer_exe",
+    "--stub_silent_exe=$huhi_silent_stub_installer_exe",
+    "--stub_untagged_exe=$huhi_untagged_stub_installer_exe",
+    "--standalone_installer_exe=$huhi_standalone_installer_exe",
+    "--silent_installer_exe=$huhi_silent_installer_exe",
+    "--untagged_installer_exe=$huhi_untagged_installer_exe",
+    "--guid=$huhi_app_guid",
+    "--install_switch=$_install_switch",
+    "--tag_ap=$tag_ap",
+    "--tag_app_name=$_tag_app_name",
+    "--huhi_full_version=$chrome_version_major.$huhi_version_major.$huhi_version_minor.$huhi_version_build",
+  ]
+
+  outputs = [
+    "$root_out_dir/$huhi_stub_installer_exe",
+    "$root_out_dir/$huhi_standalone_installer_exe",
+    "$root_out_dir/$huhi_silent_installer_exe",
+    "$root_out_dir/$huhi_untagged_installer_exe",
+  ]
+
+  deps = [
+    "//huhi/build/win:create_signed_installer",
+  ]
+}
+
