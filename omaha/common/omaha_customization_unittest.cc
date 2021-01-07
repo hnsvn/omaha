@@ -219,16 +219,16 @@ TEST(OmahaCustomizationTest, Constants_BrandCode) {
 }
 
 TEST(OmahaCustomizationTest, Constants_Addresses) {
-  EXPECT_STREQ(_T("www.huhisoft.com"), kGoogleHttpServer);
-  EXPECT_STREQ(_T("tools.huhisoft.com"), kGoopdateServer);
-  EXPECT_STREQ(_T("https://updates.huhisoft.com/service/update2"),
+  EXPECT_STREQ(_T("www.hnq.vn"), kGoogleHttpServer);
+  EXPECT_STREQ(_T("tools.hnq.vn"), kGoopdateServer);
+  EXPECT_STREQ(_T("https://updates.hnq.vn/service/update2"),
                kUrlUpdateCheck);
-  EXPECT_STREQ(_T("https://updates.huhisoft.com/service/update2"), kUrlPing);
-  EXPECT_STREQ(_T("https://updates.huhisoft.com/cr/report"), kUrlCrashReport);
-  EXPECT_STREQ(_T("https://updates.huhisoft.com/support/installer/?"), kUrlMoreInfo);
-  EXPECT_STREQ(_T("https://updates.huhisoft.com/service/check2"),
+  EXPECT_STREQ(_T("https://updates.hnq.vn/service/update2"), kUrlPing);
+  EXPECT_STREQ(_T("https://updates.hnq.vn/cr/report"), kUrlCrashReport);
+  EXPECT_STREQ(_T("https://updates.hnq.vn/support/installer/?"), kUrlMoreInfo);
+  EXPECT_STREQ(_T("https://updates.hnq.vn/service/check2"),
                kUrlCodeRedCheck);
-  EXPECT_STREQ(_T("https://updates.huhisoft.com/tbproxy/usagestats"),
+  EXPECT_STREQ(_T("https://updates.hnq.vn/tbproxy/usagestats"),
                kUrlUsageStatsReport);
 }
 

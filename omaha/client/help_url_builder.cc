@@ -52,7 +52,7 @@ HRESULT HelpUrlBuilder::BuildUrl(const std::vector<AppResult>& app_results,
     return hr;
   }
 
-  *help_url = _T("https://support.huhisoft.com/");
+  *help_url = _T("https://support.hnq.vn/");
 
   return S_OK;
 }

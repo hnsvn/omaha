@@ -58,30 +58,30 @@ const TCHAR* const kGoopdateServer = _T("tools.") COMPANY_DOMAIN;
 // The channel for update checks is secured by using CUP to sign the messages.
 // It does not depend solely on https security in any case.
 const TCHAR* const kUrlUpdateCheck =
-    _T("https://updates.huhisoft.com/service/update2");
+    _T("https://updates.hnq.vn/service/update2");
 
 // Pings.
 const TCHAR* const kUrlPing =
-    _T("https://updates.huhisoft.com/service/update2");
+    _T("https://updates.hnq.vn/service/update2");
 
 // The urls below never fall back to http.
 //
 // Crash reports.
 const TCHAR* const kUrlCrashReport =
-    _T("https://updates.huhisoft.com/cr/report");
+    _T("https://updates.hnq.vn/cr/report");
 
 // More information url.
 // Must allow query parameters to be appended to it.
 const TCHAR* const kUrlMoreInfo =
-    _T("https://updates.huhisoft.com/support/installer/?");
+    _T("https://updates.hnq.vn/support/installer/?");
 
 // Code Red check url.
 const TCHAR* const kUrlCodeRedCheck =
-    _T("https://updates.huhisoft.com/service/check2");
+    _T("https://updates.hnq.vn/service/check2");
 
 // Usage stats url.
 const TCHAR* const kUrlUsageStatsReport =
-    _T("https://updates.huhisoft.com/tbproxy/usagestats");
+    _T("https://updates.hnq.vn/tbproxy/usagestats");
 
 #if defined(HAS_DEVICE_MANAGEMENT)
 
